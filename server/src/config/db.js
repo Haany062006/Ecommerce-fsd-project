@@ -9,6 +9,7 @@ async function connectUsersDB() {
 
   usersConn = await mongoose.createConnection(uri).asPromise();
   console.log("Users DB connected");
+  return usersConn;   // ✅ IMPORTANT
 }
 
 async function connectAppDB() {
@@ -17,6 +18,7 @@ async function connectAppDB() {
 
   appConn = await mongoose.createConnection(uri).asPromise();
   console.log("App DB connected");
+  return appConn;     // (not required but clean)
 }
 
 module.exports = { connectUsersDB, connectAppDB };
